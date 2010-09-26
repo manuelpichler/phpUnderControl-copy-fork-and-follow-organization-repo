@@ -47,45 +47,39 @@
  */
 
 /**
- * This class implements the graph input for the unit tests overview.
+ * This input provides data for the Code-Coverage (Percent)-Graph.
  *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
- * @author     Manuel Pichler <mapi@phpundercontrol.org>
+ * @author     Hans-Peter Buniat <hpbuniat@gmail.com>
  * @copyright  2007-2010 Manuel Pichler. All rights reserved.
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License
  * @version    Release: @package_version@
  * @link       http://www.phpundercontrol.org/
  */
-class phpucUnitTestInput extends phpucAbstractInput
+class phpucUnitCoveragePercentInput extends phpucAbstractInput
 {
+
     /**
-     * Constructs a new unit test input object.
+     * Constructs a Code-Coverage input instance.
      */
     public function __construct()
     {
         parent::__construct(
-            'Unit Tests',
-            '10-unit-tests',
+            'Code Coverage',
+            '04-code-coverage',
             phpucChartI::TYPE_LINE
         );
 
-        $this->yAxisLabel = 'Tests';
-        $this->xAxisLabel = 'Build ';
+        $this->yAxisLabel = 'Percentage';
+        $this->xAxisLabel = 'Build';
 
         $this->addRule(
             new phpucInputRule(
-                'Total',
-                '/cruisecontrol/testsuites//testcase',
-                self::MODE_COUNT
-            )
-        );
-        $this->addRule(
-            new phpucInputRule(
-                'Failures',
-                '/cruisecontrol/testsuites//testcase[failure]',
-                self::MODE_COUNT
+                'Coverage',
+                '/cruisecontrol/metrics/@eloc div /cruisecontrol/coverage/project/file/line[@count != 0]',
+                self::MODE_VALUE
             )
         );
     }

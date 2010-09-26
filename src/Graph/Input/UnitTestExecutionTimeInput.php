@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of phpUnderControl.
- * 
+ *
  * PHP Version 5.2.0
  *
  * Copyright (c) 2007-2010, Manuel Pichler <mapi@manuel-pichler.de>.
@@ -35,7 +35,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
@@ -66,11 +66,11 @@ class phpucUnitTestExecutionTimeInput extends phpucAbstractInput
     public function __construct()
     {
         parent::__construct(
-            'Test Execution Time', 
-            '08-test-execution-time', 
+            'Test Execution Time',
+            '11-test-execution-time',
             phpucChartI::TYPE_TIME
         );
-        
+
         $this->addRule(
             new phpucInputRule(
                 'execution-time',
@@ -79,12 +79,12 @@ class phpucUnitTestExecutionTimeInput extends phpucAbstractInput
             )
         );
     }
-    
+
     /**
      * Counts te good and broken builds and extracts the day time.
      *
      * @param array(string=>array) $logs Fetched log data.
-     * 
+     *
      * @return array(string=>array)
      */
     protected function postProcessLog( array $logs )

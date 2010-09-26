@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of phpUnderControl.
- * 
+ *
  * PHP Version 5.2.0
  *
  * Copyright (c) 2007-2010, Manuel Pichler <mapi@phpundercontrol.org>.
@@ -35,7 +35,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
@@ -65,12 +65,12 @@ class phpucUnitCoverageInput extends phpucAbstractInput
      */
     public function __construct()
     {
-        parent::__construct( 
-            'Unit Coverage', 
-            '04-unit-coverage', 
+        parent::__construct(
+            'Executable Lines of Code',
+            '06-executable-lines-coverage',
             phpucChartI::TYPE_LINE
         );
-        
+
         $this->yAxisLabel = 'Lines';
         $this->xAxisLabel = 'Build ';
 

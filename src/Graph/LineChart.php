@@ -65,7 +65,7 @@ class phpucLineChart extends ezcGraphLineChart implements phpucChartI
      *
      * @var boolean
      */
-    protected $showSymbol = false;
+    protected $showSymbol = true;
 
     private $numberOfEntries = 0;
 
@@ -113,22 +113,13 @@ class phpucLineChart extends ezcGraphLineChart implements phpucChartI
             $value = $this->reduceNumberOfEntriesIfRequired( $value );
 
             $this->data[$label]         = new ezcGraphArrayDataSet( $value );
-            $this->data[$label]->symbol = ezcGraph::BULLET;
 
-            if ( $this->showSymbol === true )
-            {
-                continue;
-            }
-
-            foreach ( array_keys( $value ) as $key )
-            {
-                $this->data[$label]->symbol[$key] = ezcGraph::NO_SYMBOL;
-            }
+            $this->data[$label]->symbol = ( $this->showSymbol === true ) ? ezcGraph::BULLET : ezcGraph::NO_SYMBOL;
         }
     }
 
     /**
-     * This method will reduce the number of log entries 
+     * This method will reduce the number of log entries
      *
      * @param array(mixed=>integer) $entries The raw input list of entries.
      *
@@ -172,12 +163,20 @@ class phpucLineChart extends ezcGraphLineChart implements phpucChartI
     protected function init()
     {
         $this->palette = new phpucGraphPalette();
+        $this->renderer = new ezcGraphRenderer2d();
 
-        $this->renderer->options->legendSymbolGleam = .3;
+        // More beautiful formatting for legend
+        $this->renderer->options->dataBorder             = 0;
+        $this->renderer->options->legendSymbolGleam      = .3;
+        $this->renderer->options->legendSymbolGleamSize  = .9;
+        $this->renderer->options->legendSymbolGleamColor = '#FFFFFF';
+
+        $this->renderer->options->shortAxis    = true;
+        $this->renderer->options->axisEndStyle = ezcGraph::NO_SYMBOL;
 
         $this->options->symbolSize    = 1;
         $this->options->lineThickness = 1;
-        $this->options->fillLines     = 220;
+        $this->options->fillLines     = 230;
 
         $this->initAxis();
         $this->initTitle();
