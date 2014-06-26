@@ -90,7 +90,7 @@ class phpucInputRule
         phpucInputI::MODE_COUNT,
         phpucInputI::MODE_SUM,
         phpucInputI::MODE_VALUE,
-        phpucInputI::MODE_LIST,
+        phpucInputI::MODE_LIST
     );
 
     /**

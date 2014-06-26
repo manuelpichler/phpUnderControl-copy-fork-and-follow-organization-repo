@@ -47,45 +47,46 @@
  */
 
 /**
- * This class implements the graph input for the unit tests overview.
+ * This input provides data for the Code-Lines/Comments-Graph.
  *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
- * @author     Manuel Pichler <mapi@phpundercontrol.org>
+ * @author     Hans-Peter Buniat <hpbuniat@gmail.com>
  * @copyright  2007-2010 Manuel Pichler. All rights reserved.
  * @license    http://www.opensource.org/licenses/bsd-license.php  BSD License
  * @version    Release: @package_version@
  * @link       http://www.phpundercontrol.org/
  */
-class phpucUnitTestInput extends phpucAbstractInput
+class phpucCodeLinesCommentsInput extends phpucAbstractInput
 {
+
     /**
-     * Constructs a new unit test input object.
+     * Constructs a LOC/CLOC input instance.
      */
     public function __construct()
     {
         parent::__construct(
-            'Unit Tests',
-            '10-unit-tests',
+            'Lines of Code',
+            '07-lines-of-code',
             phpucChartI::TYPE_LINE
         );
 
-        $this->yAxisLabel = 'Tests';
+        $this->yAxisLabel = 'Lines';
         $this->xAxisLabel = 'Build ';
 
         $this->addRule(
             new phpucInputRule(
-                'Total',
-                '/cruisecontrol/testsuites//testcase',
-                self::MODE_COUNT
+                'Lines of Code',
+                '/cruisecontrol/metrics/@loc',
+                self::MODE_VALUE
             )
         );
         $this->addRule(
             new phpucInputRule(
-                'Failures',
-                '/cruisecontrol/testsuites//testcase[failure]',
-                self::MODE_COUNT
+                'Comments',
+                '/cruisecontrol/metrics/@cloc',
+                self::MODE_VALUE
             )
         );
     }

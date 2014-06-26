@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of phpUnderControl.
- * 
+ *
  * PHP Version 5.2.0
  *
  * Copyright (c) 2007-2010, Manuel Pichler <mapi@phpundercontrol.org>.
@@ -35,7 +35,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * @category  QualityAssurance
  * @package   Graph
  * @author    Manuel Pichler <mapi@phpundercontrol.org>
@@ -66,12 +66,26 @@ class phpucGraphPalette extends ezcGraphPaletteEzGreen
     protected $background = '#eeeeef';
 
     /**
-     * Light gray grid lines.
+     * Axiscolor
      *
-     * @var string
+     * @var ezcGraphColor
      */
-    protected $majorGridColor = '#d3d7cf';
-    
+    protected $axisColor = '#2E3436';
+
+    /**
+     * Color of grid lines
+     *
+     * @var ezcGraphColor
+     */
+    protected $majorGridColor = '#2E3436B0';
+
+    /**
+     * Color of minor grid lines
+     *
+     * @var ezcGraphColor
+     */
+    protected $minorGridColor = '#2E3436E0';
+
     /**
      * Four gray and green tango colors for different graph records.
      *
@@ -80,9 +94,13 @@ class phpucGraphPalette extends ezcGraphPaletteEzGreen
     protected $dataSetColor = array(
         '#8ae234',
         '#f57900',
-        '#437610',
-        '#888a85',
-        '#2e3436',
+        '#3465A4',
+        '#CC0000',
+        '#EDD400',
+        '#75505B',
+        '#F57900',
+        '#204A87',
+        '#C17D11',
     );
 
     /**
@@ -91,7 +109,7 @@ class phpucGraphPalette extends ezcGraphPaletteEzGreen
      * @var array(integer)
      */
     protected $dataSetSymbol = array(
-        ezcGraph::NO_SYMBOL,
+        ezcGraph::BULLET,
     );
 
     /**
@@ -107,4 +125,48 @@ class phpucGraphPalette extends ezcGraphPaletteEzGreen
      * @var string
      */
     protected $fontColor = '#555753';
+
+
+    /**
+     * Backgroundcolor for chart
+     *
+     * @var ezcGraphColor
+     */
+    protected $chartBackground = '#FFFFFFFF';
+
+    /**
+     * Padding in elements
+     *
+     * @var integer
+     */
+    protected $padding = 1;
+
+    /**
+     * Margin of elements
+     *
+     * @var integer
+     */
+    protected $margin = 1;
+
+    /**
+     * Backgroundcolor for elements
+     *
+     * @var ezcGraphColor
+     */
+    protected $elementBackground = '#FFFFFFB0';
+
+    /**
+     * Bordercolor for elements
+     *
+     * @var ezcGraphColor
+     */
+    protected $elementBorderColor = '#FFFFFF';
+
+    /**
+     * Borderwidth for elements
+     *
+     * @var integer
+     * @access protected
+     */
+    protected $elementBorderWidth = 1;
 }

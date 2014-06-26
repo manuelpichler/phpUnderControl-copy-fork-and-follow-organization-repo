@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of phpUnderControl.
- * 
+ *
  * PHP Version 5.2.0
  *
  * Copyright (c) 2007-2010, Manuel Pichler <mapi@phpundercontrol.org>.
@@ -35,7 +35,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
@@ -67,13 +67,13 @@ class phpucCodeViolationInput extends phpucAbstractInput
     {
         parent::__construct(
             'Coding Violations',
-            '07-coding-violations',
+            '05-coding-violations',
             phpucChartI::TYPE_LINE
         );
-        
+
         $this->yAxisLabel = 'Violations';
         $this->xAxisLabel = 'Build ';
-        
+
         $this->addRule(
             new phpucInputRule(
                 'PHP CodeSniffer',
@@ -96,9 +96,9 @@ class phpucCodeViolationInput extends phpucAbstractInput
                  ]/task[
                    @name="exec"
                  ]/message[
-                   contains(text(), "WARNING in") or 
-                   contains(text(), "WARNING:") or 
-                   contains(text(), "ERROR in") or 
+                   contains(text(), "WARNING in") or
+                   contains(text(), "WARNING:") or
+                   contains(text(), "ERROR in") or
                    contains(text(), "ERROR:")
                  ]',
                 self::MODE_COUNT

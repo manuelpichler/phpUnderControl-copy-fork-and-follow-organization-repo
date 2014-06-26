@@ -1,7 +1,7 @@
 <?php
 /**
  * This file is part of phpUnderControl.
- * 
+ *
  * PHP Version 5.2.0
  *
  * Copyright (c) 2007-2010, Manuel Pichler <mapi@phpundercontrol.org>.
@@ -35,7 +35,7 @@
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN
  * ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  * @category   QualityAssurance
  * @package    Graph
  * @subpackage Input
@@ -65,15 +65,15 @@ class phpucTestCodeRatioInput extends phpucAbstractInput
      */
     public function __construct()
     {
-        parent::__construct( 
-            'Test to Code Ratio', 
-            '06-test-to-code-ratio', 
-            phpucChartI::TYPE_LINE 
+        parent::__construct(
+            'Test to Code Ratio',
+            '12-test-to-code-ratio',
+            phpucChartI::TYPE_LINE
         );
-        
+
         $this->yAxisLabel = 'Classes / Methods';
         $this->xAxisLabel = 'Build ';
-        
+
         $this->addRule(
             new phpucInputRule(
                 'Classes',
@@ -92,7 +92,7 @@ class phpucTestCodeRatioInput extends phpucAbstractInput
             new phpucInputRule(
                 'Test Classes',
                 '/cruisecontrol/testsuites//testsuite[testcase]',
-                self::MODE_COUNT 
+                self::MODE_COUNT
             )
         );
         $this->addRule(
